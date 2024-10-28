@@ -1,0 +1,13 @@
+import numpy as np
+#Bai 1
+vector=np.array([1,2,3,4,5,6])
+mean_vector=np.mean(vector)
+print(f"Trung binh cong cua vector {vector} la {mean_vector}")
+#Bai 2
+vector=np.array([-1,-2,-3,4,5,6])
+sum_vector=np.sum(vector)
+print(f"Trung binh cong cua vector {vector} la {sum_vector}")
+#Bai 3
+matrix=np.array([[1,2,3],[3,4,5]])
+sum_column=np.sum(matrix,axis=0)
+print(f'Tong cot tron ma tran \n{matrix} \nla {sum_column}')
