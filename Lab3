@@ -1,0 +1,124 @@
+import numpy as np
+#Bai 1
+
+# Tạo một mảng NumPy để lưu trữ danh sách sản phẩm ban đầu
+product_list = np.array(["Máy giặt", "Tủ lạnh", "Lò vi sóng", "Điện thoại", "Máy tính bảng"])
+
+def add_product(product):
+ global product_list
+ # Hoàn thiện hàm THÊM sau
+ product_list = np.append(product_list,product)
+ print(f"Sản phẩm '{product}' đã được thêm vào danh sách.")
+def delete_product(index_or_name):
+ global product_list
+ try:
+    index_or_name = int(index_or_name)
+    if index_or_name >= 0 and index_or_name < len(product_list):
+        deleted_product = product_list[index_or_name]
+ # Hoàn thiện hàm XÓA sau
+        product_list = np.delete(product_list,index_or_name)
+        print(f"Sản phẩm '{deleted_product}' đã bị xóa khỏi danh sách.")
+    else:
+        print("Chỉ mục không hợp lệ.")
+ except ValueError:
+    if index_or_name in product_list:
+        index = np.where(product_list == index_or_name)
+        deleted_product = product_list[index[0][0]]
+ # Hoàn thiện hàm XÓA sau
+        product_list = np.delete(product_list,index_or_name)
+        print(f"Sản phẩm '{deleted_product}' đã bị xóa khỏi danh sách.")
+    else:
+        print("Sản phẩm không tồn tại trong danh sách.")
+def display_product_list():
+    print("Danh sách sản phẩm:")
+    for idx, product in enumerate(product_list):
+        print(f"{idx}. {product}")
+while True:
+    print("\n------ MENU ------")
+    print("1. Thêm sản phẩm")
+    print("2. Xóa sản phẩm")
+    print("3. Hiển thị danh sách sản phẩm")
+    print("4. Thoát")
+    choice = input("Chọn chức năng (1-4): ")
+    if choice == '1':
+        new_product = input("Nhập tên sản phẩm mới: ")
+        add_product(new_product)
+    elif choice == '2':
+        index_or_name = input("Nhập chỉ mục hoặc tên sản phẩm cần xóa: ")
+        delete_product(index_or_name)
+    elif choice == '3':
+        display_product_list()
+    elif choice == '4':
+        print("Kết thúc chương trình.")
+        break
+    else:
+        print("Chức năng không hợp lệ. Vui lòng chọn từ 1 đến 4.")
+
+#Bai 2
+ds_mon=np.array(['DAT2011','DAT203','DAT106','DAT108'])
+def them_mon():
+    mon=input("Nhap mon muon them")
+    global ds_mon
+    ds_mon=np.append(ds_mon,mon)
+
+def xoa_mon():
+    index_name=input("Nhap ten mon hoac vi tri index cua mon")
+    global ds_mon
+    if index_name.isdigit():
+        index=int(index_name)
+        if 0<=index<len(ds_mon):
+            del_mon=ds_mon[index]
+            ds_mon=np.delete(ds_mon,index)
+            print(f'Xoa {del_mon} thanh cong')
+        else:
+            print("Loi")
+    elif index_name in ds_mon:
+        ds_mon=np.delete(ds_mon,np.where(ds_mon==index_name))
+        print(f'Xoa {index_name} thanh cong')
+def xuat_mon():
+    print("Mon")
+    for mon in ds_mon:
+        print(mon)
+while True:
+    menu_dict={
+        1:lambda:xuat_mon(),
+        2:lambda:them_mon(),
+        3:lambda:xoa_mon()
+    }
+    print('''
+1:Xuat mon\n2:Them mon\n3:Xoa mon\n4:Thoat chuong trinh''')
+    chon=input("Chon:")
+    if chon.isdigit():
+        chon=int(chon)
+        if chon == 4:
+            print("Thoat")
+            break
+        elif chon in menu_dict:
+            menu_dict[chon]()
+    else:
+        print("Loi chon lai")
+
+#Bai 3
+vetor=np.array([1,4,3,9,7,10])
+sort_vector_1=np.sort(vetor,axis=None)
+sort_vector_2=sort_vector_1[::-1]
+print(f"{vetor}\nSau sap xep tang dan la {sort_vector_1}\nSau sap xep giam dan la {sort_vector_2}")
+
+matrix=np.array([[3,8,1],[6,5,4],[9,2,7]])
+sort_matrix=np.sort(matrix,axis=1)
+sort_matrix
+
+#Bai 4
+vetor=np.array([1,4,3,9,7,10])
+index_1=np.where(vetor>8)
+print(index_1)
+max_index=np.argmax(vetor)
+min_index=np.argmin(vetor)
+print(max_index)
+print(min_index)
+
+matrix=np.array([[3,8,1],[6,5,4],[9,2,7]])
+min_index=np.argmin(matrix)
+max_index=np.argmax(matrix)
+index=np.where(matrix>8)
+index
