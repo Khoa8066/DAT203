@@ -1,0 +1,33 @@
+import numpy as np
+import random
+#Bai 1
+nhiet_do=[24.5,25.5,26.5,27.5,28.5,35.5,27.5]
+arr=np.array(nhiet_do,dtype=np.float32)
+arr.astype(np.float32)
+print(f"Nhiet do trung binh :{arr.mean()} C")
+print(f"Nhiet do thap nhat: {arr.min()} | Nhiet do cao nhat: {arr.max()}")
+#Bai 2
+arr=np.array(range(1,7)).reshape(2,3)
+print(f"Tong cac gia tri trong mang la: {arr.sum()}")
+print(f"Trung binh cong cac gia tri trong mang la: {arr.mean()}")
+print(f"Gia tri Max trong mang la: {arr.max()}")
+print(f"Gia tri Min trong mang la: {arr.min()}")
+#Bai 3
+list_1=[[1,2,3,4,5],[6,7,8,9,10]]
+tup_1=((1,2,3),(4,5,6),(7,8,9))
+dict_1={'Hoa don':[5,10,15],'Tien tip':[8,14],'Giam gia':[1,2]}
+arr_list=np.array(list_1)
+print(arr_list)
+arr_tup=np.array(tup_1)
+print(arr_tup)
+arr_dict=np.array(dict_1)
+print(arr_dict)
+#Bai 4
+array_1 = np.random.randn(2,3)
+print(array_1)
+arr_2=np.array(range(0,101,10))
+print(arr_2)
+arr_3=np.linspace(1,10,5 ,dtype=int)
+print(arr_3)
+arr_4=np.zeros(shape=(3,4))
+print(arr_4)
