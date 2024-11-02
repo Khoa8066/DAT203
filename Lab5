@@ -1,0 +1,49 @@
+#Bai 1
+arr=np.random.randint(1,100,size=10)
+last_num=arr[-1]
+max_num=arr.max()
+min_num=arr.min()
+std_arr=arr.std()
+reversed_arr=arr[::-1]
+print(f'Mang duoc tao ngau nhien: {arr}')
+print(f'Phan tu cuoi cua mang: {last_num}')
+print(f'Phan tu lon nhat cua mang: {max_num}')
+print(f'Phan tu nho nhat mang: {min_num}')
+print(f'Do lech chuan: {std_arr}')
+print(f'Mang dao nguoc: {reversed_arr}')
+# Bai 2
+matrx=np.arange(0,16).reshape(4,4)
+phan_tu_hang2_3=matrx[1][2]
+matrx[1][2]=100
+tong_hang2=matrx[1].sum()
+tong_hang2=np.sum(matrx[1])
+tong_cot3=matrx[:,2].sum()
+def tinh_col_row(arr):
+    for i in range(len(arr)):
+        col=matrx[:,i]
+        print(f'Tong cot thu {i+1}: {col.sum()}')
+        row=matrx[i,:]
+        print(f'Tong hang thu {i+1}: {row.sum()}')
+tinh_col_row(matrx)
+
+# Bai 3
+matrx_2=np.array(range(1,26)).reshape(5,5)
+new_matrx=matrx_2[1:5,1:4]
+tinh_col_row(matrx)
+max_n=new_matrx.max()
+min_n=new_matrx.min()
+reversed_new_matrx=new_matrx[::-1]
+
+# Bai 4
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+arr=np.arange(-10,10)
+arr_nagative=arr[np.where(arr>0)]
+so_nguyen_to=np.array([x for x in arr_nagative if is_prime(x)])
+arr[np.where(arr>0)].sum()
+unique_arr=np.unique(arr)
