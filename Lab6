@@ -1,0 +1,56 @@
+#bai1
+def get_array_info(ar):
+    x = np.array(ar)
+    print ("x: ", x)
+    print ("x.ndim: ", x.ndim)
+    print ("x.shape:", x.shape)
+    print ("x.size: ", x.size)
+    print ("x.dtype: ", x.dtype)
+
+arr=np.arange(1,13).reshape(3,4)
+get_array_info(arr)
+trans_arr=np.transpose(arr)
+get_array_info(trans_arr)
+flatten_arr=arr.reshape(-1)
+get_array_info(flatten_arr)
+try:
+    new_arr=flatten_arr.reshape(3,2)
+except:
+    print("Loi")
+#bai2
+arr_1=np.arange(1,13).reshape(4,3)
+arr_2=np.random.randint(10,30,size=3)
+print(arr_1)
+print(arr_2)
+print(arr_1+arr_2)
+print(f'Tong phan tu theo cot{np.sum(arr_1,axis=0)}')
+print(f'Tong phan tu theo hang{np.sum(arr_1,axis=1)}')
+# bai 3
+data=np.array(
+    [('Van A',19,10),
+    ('Van B',20,7),
+    ('Van C',26,9)],
+    dtype=[('name','U10'),('age','i4'),('point','f4')]
+    )
+#1
+max_point=data['point'].max()
+print(data[data['point']==max_point])
+#2
+data[np.argmax(data['point'])]
+print(data[np.where(data['point'].max())])
+---
+age_mean=np.mean(data['age'],dtype=np.float16)
+age_mean
+
+mask= data['age']> 25
+filler_arr=data[mask]
+print(filler_arr)
+
+#bai4
+arr=np.arange(1,21).reshape(4,5)
+print(arr)
+print(arr[2:4,1:4])
+flatten_arr=arr.flatten()
+print(flatten_arr)
+print(np.sort(flatten_arr)[::-1])
+print(f'Tong phan tu trong mang {np.sum(flatten_arr)}')
