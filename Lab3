@@ -25,7 +25,7 @@ def delete_product(index_or_name):
         index = np.where(product_list == index_or_name)
         deleted_product = product_list[index[0][0]]
  # Hoàn thiện hàm XÓA sau
-        product_list = np.delete(product_list,index_or_name)
+        product_list = np.delete(product_list,index[0][0])
         print(f"Sản phẩm '{deleted_product}' đã bị xóa khỏi danh sách.")
     else:
         print("Sản phẩm không tồn tại trong danh sách.")
