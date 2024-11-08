@@ -116,9 +116,14 @@ max_index=np.argmax(vetor)
 min_index=np.argmin(vetor)
 print(max_index)
 print(min_index)
-
+#Update 08/11/2024
 matrix=np.array([[3,8,1],[6,5,4],[9,2,7]])
+print(matrix)
 min_index=np.argmin(matrix)
+min_position=(min_index//matrix.shape[1],min_index%matrix.shape[1])
+print(f'Vị trí nhỏ nhất: {min_position}')
 max_index=np.argmax(matrix)
-index=np.where(matrix>8)
-index
+max_position=(max_index//matrix.shape[1],max_index%matrix.shape[1])
+print(f'Vị trí lớn nhất: {max_position}')
+index=np.argwhere(matrix>8)
+print(f'Vị trí index thỏa mãn: {index}')
